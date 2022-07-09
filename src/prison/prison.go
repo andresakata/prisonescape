@@ -30,3 +30,15 @@ func shuffleBoxes() map[int]int {
 
 	return boxes
 }
+
+func (p *Prison) FindBox(prisoner int) bool {
+	nextBox := prisoner
+	for attempts := 0; attempts < 50; attempts++ {
+		currentBox := p.Boxes[nextBox]
+		if currentBox == prisoner {
+			return true
+		}
+		nextBox = currentBox
+	}
+	return false
+}
